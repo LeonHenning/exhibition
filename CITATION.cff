@@ -6,6 +6,7 @@ authors:
   - family-names: "Henning"
     given-names: "Leon"
     name-particle: "HsH"
+    orcid: "https://orcid.org/0009-0009-2065-0637"
 license: MIT
 repository-code: "https://github.com/yourusername/exhibition"
 repository: "https://github.com/yourusername/exhibition"
