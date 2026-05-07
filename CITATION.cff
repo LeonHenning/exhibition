@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "BIM Prototype 02: Wikidata Quarto Website"
+message: "If you use this project, please cite it using the metadata in this file."
+type: software
+authors:
+  - family-names: "Henning"
+    given-names: "Leon"
+    name-particle: "HsH"
+license: MIT
+repository-code: "https://github.com/yourusername/exhibition"
+repository: "https://github.com/yourusername/exhibition"
+url: "https://yourusername.github.io/exhibition"
+abstract: "A Quarto website that queries Wikidata and displays information about Wikidata items with SPARQL queries, styled profile cards, and interactive visualizations."
+keywords:
+  - Wikidata
+  - SPARQL
+  - Quarto
+  - Website
+  - Linked Data
+version: 0.1.0
+date-released: 2026-05-07
