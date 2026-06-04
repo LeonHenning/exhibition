@@ -6,11 +6,14 @@ project:
     - project-log.qmd
     - wikidata.qmd
     - wikidata-item.ipynb
+  metadata:  
+  author:
+    - orcid: 0009-0009-2065-0637
+    - name: Leon Henning
+    - affiliation: HsH  
 
 website:
   title: "BIM Prototype 02"
-  author:
-    - orcid: 0009-0009-2065-0637
   navbar:
     left:
       - href: index.qmd
