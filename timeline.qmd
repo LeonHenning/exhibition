@@ -80,6 +80,11 @@ filtered = exhibitions.filter(d => {
 
 `${filtered.length} von ${exhibitions.length} Ausstellungen angezeigt`
 
+```{ojs}
+//| echo: false
+mutable selectedExhibition = null
+```
+
 ### Timeline
 
 ```{ojs}
@@ -156,7 +161,7 @@ chart = {
       .attr("rx", 3)
       .attr("cursor", "pointer")
       .on("click", (event, d) => {
-        selectedExhibition = d;
+        mutable selectedExhibition = d;
       })
       .on("mouseenter", function() { d3.select(this).attr("fill", "#1d3f55"); })
       .on("mouseleave", function() { d3.select(this).attr("fill", "#3b6e8f"); });
@@ -168,10 +173,6 @@ chart = {
 }
 ```
 
-```{ojs}
-//| echo: false
-mutable selectedExhibition = null
-```
 
 ### Details
 
