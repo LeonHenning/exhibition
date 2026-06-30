@@ -25,7 +25,7 @@ website:
       - href: wikidata-item.ipynb
         text: Item Profile
       - href: timeline.qmd
-        text: "Ausstellungen Timeline"
+        text: "Ausstellungen Timelines"
 
 format:
   html:
