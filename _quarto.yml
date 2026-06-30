@@ -6,8 +6,9 @@ project:
     - project-log.qmd
     - wikidata.qmd
     - wikidata-item.ipynb
-  metadata:  
-  author:
+    - timeline.qmd
+ 
+author:
     - orcid: 0009-0009-2065-0637
     - name: Leon Henning
     - affiliation: HsH  
