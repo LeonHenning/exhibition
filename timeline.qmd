@@ -98,8 +98,10 @@ chart = {
     return svg.node();
   }
 
+  const xExtent = d3.extent(filtered.flatMap(d => [d.start, d.end]));
+  const xPad = 30 * 24 * 60 * 60 * 1000; // 30 Tage Padding
   const x = d3.scaleTime()
-    .domain(d3.extent(exhibitions.flatMap(d => [d.start, d.end])))
+    .domain([new Date(xExtent[0] - xPad), new Date(xExtent[1] + xPad)])
     .range([margin.left, width - margin.right]);
 
   const y = d3.scaleBand()
