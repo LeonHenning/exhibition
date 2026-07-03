@@ -114,10 +114,8 @@ chart = {
   const tickInterval = spanYears <= 2 ? d3.timeMonth.every(2)
                      : spanYears <= 5 ? d3.timeMonth.every(3)
                      : d3.timeYear.every(1);
-  const tickFmt = spanYears <= 2
+  const tickFmt = spanYears <= 5
     ? d3.timeFormat("%b %Y")
-    : spanYears <= 5
-    ? d => d.getMonth() === 0 ? d3.timeFormat("%Y")(d) : d3.timeFormat("%b")(d)
     : d3.timeFormat("%Y");
 
   svg.append("g")
