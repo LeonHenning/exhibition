@@ -79,7 +79,7 @@ ${filtered.length} von ${exhibitions.length} Ausstellungen angezeigt
 ```{ojs}
 //| echo: false
 chart = {
-  const margin = {top: 20, right: 40, bottom: 40, left: 200};
+  const margin = {top: 60, right: 40, bottom: 40, left: 200};
   const rowHeight = 28;
   const width = 960;
   const height = Math.max(200, filtered.length * rowHeight + margin.top + margin.bottom);
@@ -111,7 +111,7 @@ chart = {
 
   // Adaptive Tick-Strategie je nach Zeitspanne
   const spanYears = (xExtent[1] - xExtent[0]) / (365.25 * 24 * 60 * 60 * 1000);
-  const tickInterval = spanYears <= 2 ? d3.timeMonth.every(1)
+  const tickInterval = spanYears <= 2 ? d3.timeMonth.every(2)
                      : spanYears <= 5 ? d3.timeMonth.every(3)
                      : d3.timeYear.every(1);
   const tickFmt = spanYears <= 2
@@ -123,7 +123,14 @@ chart = {
   svg.append("g")
     .attr("transform", `translate(0,${margin.top})`)
     .call(d3.axisTop(x).ticks(tickInterval).tickFormat(tickFmt))
-    .call(g => g.select(".domain").remove());
+    .call(g => {
+      g.select(".domain").remove();
+      g.selectAll(".tick text")
+        .attr("transform", "rotate(-45)")
+        .attr("text-anchor", "start")
+        .attr("dx", "0.5em")
+        .attr("dy", "-0.5em");
+    });
 
   svg.append("g")
     .attr("stroke", "#e0e0e0")
