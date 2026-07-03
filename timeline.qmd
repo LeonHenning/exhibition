@@ -79,8 +79,8 @@ ${filtered.length} von ${exhibitions.length} Ausstellungen angezeigt
 ```{ojs}
 //| echo: false
 chart = {
-  const margin = {top: 60, right: 40, bottom: 40, left: 200};
-  const rowHeight = 28;
+  const margin = {top: 60, right: 40, bottom: 40, left: 280};
+  const rowHeight = 38;
   const width = 960;
   const height = Math.max(200, filtered.length * rowHeight + margin.top + margin.bottom);
 
@@ -141,15 +141,39 @@ chart = {
       .attr("y1", margin.top).attr("y2", height - margin.bottom);
 
   svg.append("g")
-    .selectAll("text")
+    .selectAll("g")
     .data(filtered)
-    .join("text")
-      .attr("x", margin.left - 10)
-      .attr("y", d => y(d.qid) + y.bandwidth() / 2)
-      .attr("dy", "0.35em")
-      .attr("text-anchor", "end")
-      .attr("font-size", "11px")
-      .text(d => d.title.length > 35 ? d.title.slice(0, 35) + "..." : d.title);
+    .join("g")
+      .each(function(d) {
+        const words = d.title.split(" ");
+        let line1 = "", line2 = "";
+        for (const word of words) {
+          if ((line1 + " " + word).trim().length <= 28) {
+            line1 = (line1 + " " + word).trim();
+          } else {
+            line2 = (line2 + " " + word).trim();
+          }
+        }
+        if (line2.length > 28) line2 = line2.slice(0, 26) + "...";
+        const cy = y(d.qid) + y.bandwidth() / 2;
+        const hasTwo = line2.length > 0;
+        d3.select(this).append("text")
+          .attr("x", margin.left - 10)
+          .attr("y", hasTwo ? cy - 7 : cy)
+          .attr("dy", "0.35em")
+          .attr("text-anchor", "end")
+          .attr("font-size", "11px")
+          .text(line1);
+        if (hasTwo) {
+          d3.select(this).append("text")
+            .attr("x", margin.left - 10)
+            .attr("y", cy + 7)
+            .attr("dy", "0.35em")
+            .attr("text-anchor", "end")
+            .attr("font-size", "11px")
+            .text(line2);
+        }
+      });
 
   svg.append("g")
     .selectAll("rect")
