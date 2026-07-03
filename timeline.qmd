@@ -111,7 +111,9 @@ chart = {
 
   svg.append("g")
     .attr("transform", `translate(0,${margin.top})`)
-    .call(d3.axisTop(x).ticks(width / 100).tickFormat(d3.timeFormat("%Y")))
+    .call(d3.axisTop(x)
+      .ticks(d3.timeMonth.every(3))
+      .tickFormat(d => d.getMonth() === 0 ? d3.timeFormat("%Y")(d) : d3.timeFormat("%b")(d)))
     .call(g => g.select(".domain").remove());
 
   svg.append("g")
