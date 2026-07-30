@@ -152,8 +152,8 @@ ul.task-list li input[type="checkbox"] {
 <h1>Wikidata Item Profile</h1>
 <p>This notebook-backed page queries Wikidata with SPARQL and renders a styled HTML profile.</p>
 <p>To profile another item, change the <code>item_id</code> value in Cell 3 and re-render the site.</p>
-<div id="2c369ca0" class="cell" data-execution_count="7">
-<section id="sparql-query-used-for-q138651627" class="level2 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
+<div id="2c369ca0" class="cell" data-execution_count="2">
+<section id="sparql-query-used-for-q138651627" class="level2 cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <h2 class="anchored" data-anchor-id="sparql-query-used-for-q138651627">SPARQL Query Used for Q138651627</h2>
 <pre class="sparql"><code>SELECT ?property ?propertyLabel ?value ?valueLabel WHERE {
   BIND(wd:Q138651627 AS ?item)
@@ -167,13 +167,13 @@ ul.task-list li input[type="checkbox"] {
 ORDER BY ?propertyLabel</code></pre>
 </section>
 </div>
-<div id="eaae8030" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="eaae8030" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>10</code></pre>
 </div>
 </div>
-<div id="f0195f22" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="f0195f22" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <style>
 :root {
@@ -302,7 +302,7 @@ body {
 <div class="wd-shell">
   <section class="wd-hero">
     <h2 class="anchored">Wikidata Statement Profile</h2>
-    <div class="wd-meta">Item: <strong>Q138651627</strong> · Statements: <strong>10</strong> · Generated: 2026-05-07 11:48 UTC</div>
+    <div class="wd-meta">Item: <strong>Q138651627</strong> · Statements: <strong>10</strong> · Generated: 2026-07-30 16:14 UTC</div>
     <div class="wd-meta"><a href="https://www.wikidata.org/wiki/Q138651627" style="color:white;text-decoration:underline" target="_blank" rel="noopener">Open item on Wikidata</a></div>
   </section>
 
@@ -377,6 +377,20 @@ body {
             
   </section>
 </div>
+</div>
+</div>
+<div id="12e6f1c3" class="cell" data-execution_count="3">
+<section id="network-graph-for-q138651627" class="level2 cell-output cell-output-display cell-output-markdown">
+<h2 class="anchored" data-anchor-id="network-graph-for-q138651627">Network graph for Q138651627</h2>
+</section>
+<div class="cell-output cell-output-stdout">
+<pre><code>Warning: When  cdn_resources is 'local' jupyter notebook has issues displaying graphics on chrome/safari. Use cdn_resources='in_line' or cdn_resources='remote' if you have issues viewing graphics in a notebook.
+wikidata-network.html</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+
+        <iframe width="100%" height="560px" src="wikidata-network.html" frameborder="0" allowfullscreen=""></iframe>
+        
 </div>
 </div>
 
@@ -457,7 +471,7 @@ body {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/LeonHenning\.github\.io\/exhibition\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
